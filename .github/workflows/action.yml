@@ -15,5 +15,5 @@ jobs:
         run: |
           pwd
           ls -al
-          chmod +x "${GITHUB_WORKSPACE}/.github/secret_action.sh"
-          "${GITHUB_WORKSPACE}/.github/secret_action.sh ${inputs.env-name}"
+          chmod +x ./secret_action.sh
+          secret_action.sh ${inputs.env-name}
