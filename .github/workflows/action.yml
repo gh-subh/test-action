@@ -19,4 +19,4 @@ jobs:
           pwd
           ls -al
           chmod +x ./secret_action.sh
-          sh secret_action.sh
+          bash secret_action.sh
