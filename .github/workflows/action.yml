@@ -6,8 +6,8 @@ on:
         description: 'select env name'
         required: true
         options: 
-          - monalisa
-          - cschleiden
+        - prod
+        - test
 jobs:
   Set-Secrets:
     runs-on: ubuntu-latest
