@@ -1,0 +1,14 @@
+name: Firebase Secret
+on:
+  workflow_dispatch:
+    inputs:
+      env-name:
+        description: 'Enter env name'
+        required: true
+        default: 'test'
+jobs:
+  steps:
+  - name: Run Secret script
+    run: |
+      chmod +x "${GITHUB_WORKSPACE}/.github/secret_action.sh"
+      "${GITHUB_WORKSPACE}/.github/secret_action.sh ${inputs.env-name}"
