@@ -3,9 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       env-name:
-        description: 'Enter env name'
+        description: 'select env name'
         required: true
-        default: 'test'
+        options: 
+          - monalisa
+          - cschleiden
 jobs:
   Set-Secrets:
     runs-on: ubuntu-latest
