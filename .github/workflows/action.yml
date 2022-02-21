@@ -1,18 +1,26 @@
-name: Firebase Secret
+name: Mixed inputs
+
 on:
   workflow_dispatch:
     inputs:
-      env-name:
-        description: 'Enter env name'
+      name:
+        type: choice
+        description: Who to greet
+        options: 
+        - monalisa
+        - cschleiden
+      message:
         required: true
-        default: 'test'
+      use-emoji:
+        type: boolean
+        description: Include 🎉🤣 emojis
+      environment:
+        type: environment
+
 jobs:
-  Set-Secrets:
+  greet:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - name: Run Secret script
-        run: |
-          chmod +x "${GITHUB_WORKSPACE}/.github/secret_action.sh"
-          "${GITHUB_WORKSPACE}/.github/secret_action.sh ${inputs.env-name}"
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+    - name: Send greeting
+      run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
