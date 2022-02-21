@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       env-name:
+        type: choice
         description: 'select env name'
         required: true
         options: 
