@@ -1,4 +1,5 @@
+#!/usr/bin/env bash
 while read p; do
-  arrIN=${p//=/ }
+  arrIN=(${p//=/ })
   echo ${arrIN[0]} ${arrIN[1]}
 done < .secret.$FILE_NAME
