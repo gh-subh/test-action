@@ -13,6 +13,6 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Run Secret script
         run: |
-          ls -al
+          pwd
           chmod +x "${GITHUB_WORKSPACE}/.github/secret_action.sh"
           "${GITHUB_WORKSPACE}/.github/secret_action.sh ${inputs.env-name}"
