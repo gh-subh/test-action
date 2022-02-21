@@ -15,4 +15,3 @@ jobs:
         run: |
           chmod +x "${GITHUB_WORKSPACE}/.github/secret_action.sh"
           "${GITHUB_WORKSPACE}/.github/secret_action.sh ${inputs.env-name}"
-      - run: echo "🍏 This job's status is ${{ job.status }}."
