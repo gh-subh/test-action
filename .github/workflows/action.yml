@@ -7,8 +7,12 @@ on:
         required: true
         default: 'test'
 jobs:
-  steps:
-  - name: Run Secret script
-    run: |
-      chmod +x "${GITHUB_WORKSPACE}/.github/secret_action.sh"
-      "${GITHUB_WORKSPACE}/.github/secret_action.sh ${inputs.env-name}"
+  Set-Secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: Run Secret script
+        run: |
+          chmod +x "${GITHUB_WORKSPACE}/.github/secret_action.sh"
+          "${GITHUB_WORKSPACE}/.github/secret_action.sh ${inputs.env-name}"
+      - run: echo "🍏 This job's status is ${{ job.status }}."
