@@ -13,12 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Run Secret script
         env:
           FILE_NAME: ${{ github.event.inputs.env-name }}
         run: |
-          pwd
-          ls -al
           chmod +x ./secret_action.sh
           bash secret_action.sh
