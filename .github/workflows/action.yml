@@ -7,12 +7,18 @@ on:
         description: 'select env name'
         required: true
         options: 
-        - prod
+        - production
         - test
 jobs:
   Set-Secrets:
     runs-on: ubuntu-latest
     steps:
+      - name: Firebase Login
+        uses: w9jds/firebase-action@master
+        with:
+          args: use test
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       - uses: actions/checkout@v2
       - name: Run Secret script
         env:
